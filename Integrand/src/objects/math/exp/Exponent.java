@@ -18,4 +18,12 @@ public class Exponent<T1 extends SubExpression, T2 extends SubExpression> extend
 	public String getEquationText() {
 		return base.getEquationText() + "^{" + power.getEquationText() + "}";
 	}
+
+	@Override
+	public Number getNumericalValue() {
+		if (base.isNumber() && power.isNumber()) {
+			return Math.pow(base.getNumericalValue().doubleValue(), power.getNumericalValue().doubleValue());
+		}
+		return null;
+	}
 }

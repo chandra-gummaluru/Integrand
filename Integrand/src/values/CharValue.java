@@ -9,4 +9,9 @@ public class CharValue extends Value<Character> {
 	public CharValue(Character value) {
 		super(value);
 	}
+
+	@Override
+	public Number getNumericalValue() {
+		return null;
+	}
 }

@@ -27,4 +27,33 @@ public class Expression extends SubExpression {
 		return s;
 	}
 
+	@Override
+	public Number getNumericalValue() {
+		double val = 0;
+
+		for (int i = 0; i < terms.length; i++) {
+			if (!terms[i].isNumber()) {
+				return null;
+			}
+
+			switch (operations[i]) {
+			case ADD:
+				val += terms[i].getNumericalValue().doubleValue();
+			case DIVIDE:
+				val /= terms[i].getNumericalValue().doubleValue();
+				break;
+			case MUTLIPLY:
+				val *= terms[i].getNumericalValue().doubleValue();
+				break;
+			case SUBTRACT:
+				val -= terms[i].getNumericalValue().doubleValue();
+				break;
+			default:
+				break;
+
+			}
+		}
+		return val;
+	}
+
 }

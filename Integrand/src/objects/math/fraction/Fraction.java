@@ -15,4 +15,12 @@ public class Fraction<T1 extends SubExpression, T2 extends SubExpression> extend
 	public String getEquationText() {
 		return "\\frac{" + numerator.getEquationText() + "}{" + denominator.getEquationText() + "}";
 	}
+
+	@Override
+	public Number getNumericalValue() {
+		if (numerator.isNumber() && denominator.isNumber()) {
+			return numerator.getNumericalValue().doubleValue() / denominator.getNumericalValue().doubleValue();
+		}
+		return null;
+	}
 }

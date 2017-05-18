@@ -27,4 +27,17 @@ public class Term extends SubExpression {
 		return s;
 	}
 
+	@Override
+	public Number getNumericalValue() {
+		double val = 0;
+
+		for (SubExpression s : subexpressions) {
+			if (!s.isNumber()) {
+				return null;
+			}
+			val *= s.getNumericalValue().doubleValue();
+		}
+		return val;
+	}
+
 }

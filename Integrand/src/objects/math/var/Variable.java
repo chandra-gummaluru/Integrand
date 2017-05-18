@@ -42,4 +42,12 @@ public class Variable extends SubExpression {
 		return s;
 	}
 
+	@Override
+	public Number getNumericalValue() {
+		if (val.isNumber()) {
+			return val.getNumericalValue().doubleValue();
+		}
+		return null;
+	}
+
 }

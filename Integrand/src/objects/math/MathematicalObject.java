@@ -7,4 +7,10 @@ public abstract class MathematicalObject implements Expressable {
 	public String toString() {
 		return this.getEquationText();
 	}
+
+	public boolean isNumber() {
+		return getNumericalValue() != null;
+	}
+
+	public abstract Number getNumericalValue();
 }

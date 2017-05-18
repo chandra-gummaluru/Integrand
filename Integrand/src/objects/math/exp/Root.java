@@ -17,4 +17,12 @@ public class Root<T1 extends SubExpression, T2 extends SubExpression> extends Su
 		return "\\sqrt[" + order.getEquationText() + "]{" + radicand.getEquationText() + "}";
 	}
 
+	@Override
+	public Number getNumericalValue() {
+		if (radicand.isNumber() && order.isNumber()) {
+			return Math.pow(radicand.getNumericalValue().doubleValue(), 1 / order.getNumericalValue().doubleValue());
+		}
+		return null;
+	}
+
 }
